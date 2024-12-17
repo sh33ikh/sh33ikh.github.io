@@ -1,0 +1,91 @@
+# Base Site Settings
+baseURL = "https://sh33ikh.github.io/"
+languageCode = "bn"
+title = "লিখন শেখ | ডিজিটাল ক্রিয়েটর"
+theme = "ananke" # Example theme, replace with your installed theme
+defaultContentLanguage = "bn"
+enableRobotsTXT = true
+paginate = 10
+summaryLength = 70
+
+# Author and Metadata
+[params]
+  author = "লিখন শেখ"
+  description = "লিখন শেখ - একজন আধুনিক ওয়েব ডেভেলপার, ডিজাইনার এবং টেক এন্থুসিয়াস্ট।"
+  keywords = ["লিখন শেখ", "ওয়েব ডেভেলপার", "ডিজিটাল ক্রিয়েটর", "বাংলাদেশী ডেভেলপার", "টেক প্রফেশনাল"]
+  footerText = "© 2024 লিখন শেখ | সকল অধিকার সংরক্ষিত।"
+  socials = [
+    { name = "Telegram", url = "https://t.me/sh33ikh", icon = "fab fa-telegram" }
+  ]
+  profileImage = "/assets/profile.jpg"
+
+# Menus Configuration
+[menu]
+  [[menu.main]]
+    name = "হোম"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "দক্ষতা"
+    url = "/skills/"
+    weight = 2
+  [[menu.main]]
+    name = "সম্পর্কে"
+    url = "/about/"
+    weight = 3
+  [[menu.main]]
+    name = "যোগাযোগ"
+    url = "/contact/"
+    weight = 4
+  [[menu.main]]
+    name = "প্রকল্প"
+    url = "/projects/"
+    weight = 5
+
+# Permalink Structure
+[permalinks]
+  post = "/:year/:month/:slug/"
+  page = "/:slug/"
+
+# Taxonomies
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+# Markup Settings
+[markup]
+  defaultMarkdownHandler = "goldmark"
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true # Allows rendering custom HTML inside Markdown files
+
+# Output Formats
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+# Sitemap
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.8
+  filename = "sitemap.xml"
+
+# Build Settings
+[build]
+  writeStats = true
+  useResourceCache = true
+
+# Google Analytics
+[services]
+  [services.googleAnalytics]
+    id = "UA-210567890-1" # Your valid Google Analytics ID
+
+# Hugo Extended Version Settings
+[asset]
+  [asset.minify]
+    disableHTML = false
+    disableCSS = false
+    disableJS = false
+
+# Disqus Integration (Optional)
+[params.disqus]
+  shortname = "sh33ikh-comments" # Your valid Disqus shortname
