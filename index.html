@@ -1,170 +1,139 @@
 <!DOCTYPE html>
-<html lang="bn" prefix="og: https://ogp.me/ns#" itemscope itemtype="https://schema.org/WebPage">
+<html lang="bn">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    
-    <!-- 301 Redirects Configuration (to be implemented on server) -->
-    <link rel="canonical" href="https://www.sh33ikh.github.io">
-    
-    <!-- Comprehensive SEO Title -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>লিখন শেখ | প্রফেশনাল ওয়েব ডেভেলপার | ডিজিটাল সমাধান বিশেষজ্ঞ</title>
-    
-    <!-- Advanced Meta Description -->
     <meta name="description" content="ডিজিটাল ট্রান্সফর্মেশন এবং ইনোভেটিভ ওয়েব সমাধানে বিশেষজ্ঞ। UI/UX ডিজাইন, ফ্রন্টেন্ড ডেভেলপমেন্ট, এবং ডিজিটাল স্ট্রাটেজি।">
-    
-    <!-- Expanded Keyword Strategy -->
-    <meta name="keywords" content="লিখন শেখ, ওয়েব ডেভেলপার, ডিজিটাল সমাধান, UI/UX ডিজাইন, রিয়্যাক্ট ডেভেলপমেন্ট, ফ্রন্টেন্ড ইঞ্জিনিয়ার, বাংলাদেশী টেক প্রফেশনাল, নেক্সট.জেএস, ওয়েব অ্যাপ্লিকেশন">
-    
-    <!-- Open Graph Enhanced Metadata -->
-    <meta property="og:type" content="profile">
-    <meta property="og:title" content="লিখন শেখ - ডিজিটাল ইনোভেশন">
-    <meta property="og:description" content="ডিজিটাল সমাধানের অগ্রণী বিশেষজ্ঞ। ইনোভেটিভ ওয়েব টেকনোলোজি এবং ব্যবহারিক ডিজাইনে দক্ষ।">
-    <meta property="og:url" content="https://www.sh33ikh.github.io">
-    <meta property="og:image" content="https://sh33ikh.github.io/profile-og.jpg">
-    
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="লিখন শেখ - ডিজিটাল ইনোভেশন">
-    <meta name="twitter:description" content="ডিজিটাল সমাধানের অগ্রণী বিশেষজ্ঞ। ইনোভেটিভ ওয়েব টেকনোলোজি এবং ব্যবহারিক ডিজাইনে দক্ষ।">
-    <meta name="twitter:image" content="https://sh33ikh.github.io/profile-og.jpg">
-    
-    <!-- Preload and Performance Optimization -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" as="script">
-    
-    <!-- Favicon and Icons -->
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    
-    <!-- Structured Data with Enhanced Details -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "লিখন শেখ",
-        "jobTitle": ["ওয়েব ডেভেলপার", "UI/UX ডিজাইনার"],
-        "url": "https://www.sh33ikh.github.io",
-        "image": "https://sh33ikh.github.io/profile.jpg",
-        "alumniOf": {
-            "@type": "Organization",
-            "name": "ডিজিটাল ইনোভেশন একাডেমি"
-        },
-        "sameAs": [
-            "https://t.me/sh33ikh",
-            "https://linkedin.com/in/likhonsheikh",
-            "https://github.com/sh33ikh"
-        ],
-        "skills": [
-            "React.js Development",
-            "Next.js",
-            "UI/UX Design",
-            "Web Development",
-            "Digital Strategy"
-        ]
-    }
-    </script>
-    
-    <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom Stylesheet -->
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
 </head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-            <a class="navbar-brand" href="#">লিখন শেখ</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home">হোম</a>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+    <div x-data="{ isOpen: false }">
+        <nav class="flex items-center justify-between flex-wrap bg-indigo-500 p-6 fixed w-full z-10 top-0">
+            <div class="flex items-center flex-shrink-0 text-white mr-6">
+                <a class="text-white no-underline hover:text-white hover:no-underline" href="#">
+                    <span class="text-2xl pl-2">লিখন শেখ</span>
+                </a>
+            </div>
+
+            <div class="block lg:hidden">
+                <button @click="isOpen = !isOpen" class="flex items-center px-3 py-2 border rounded text-indigo-200 border-indigo-400 hover:text-white hover:border-white">
+                    <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+                </button>
+            </div>
+
+            <div :class="{ 'hidden': !isOpen }" class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block pt-6 lg:pt-0">
+                <ul class="list-reset lg:flex justify-end flex-1 items-center">
+                    <li class="mr-3">
+                        <a class="inline-block py-2 px-4 text-white no-underline" href="#home">হোম</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#services">সেবাসমূহ</a>
+                    <li class="mr-3">
+                        <a class="inline-block text-indigo-200 no-underline hover:text-indigo-100 hover:text-underline py-2 px-4" href="#services">সেবাসমূহ</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">যোগাযোগ</a>
+                    <li class="mr-3">
+                        <a class="inline-block text-indigo-200 no-underline hover:text-indigo-100 hover:text-underline py-2 px-4" href="#blog">ব্লগ</a>
+                    </li>
+                    <li class="mr-3">
+                        <a class="inline-block text-indigo-200 no-underline hover:text-indigo-100 hover:text-underline py-2 px-4" href="#contact">যোগাযোগ</a>
                     </li>
                 </ul>
             </div>
         </nav>
-    </header>
-    <main>
-        <section id="home" class="hero d-flex align-items-center justify-content-center text-center">
-            <div class="hero-content">
-                <h1 class="display-4">লিখন শেখ</h1>
-                <p class="lead">
-                    আমি একজন প্রফেশনাল ওয়েব ডেভেলপার এবং ডিজিটাল সমাধান বিশেষজ্ঞ। আমার লক্ষ্য হল ব্যবহারকারীদের জন্য অভিনব ডিজিটাল অভিজ্ঞতা তৈরি করা, যা তাদের ব্যবসায়িক লক্ষ্য অর্জনে সহায়ক হবে।
-                </p>
-                <div class="cta-buttons">
-                    <a href="#services" class="btn btn-success">আমার সেবাসমূহ</a>
-                    <a href="#contact" class="btn btn-success">যোগাযোগ</a>
-                </div>
-            </div>
-        </section>
-        <section id="services" class="services">
-            <div class="container">
-                <h2 class="section-title text-center">আমার পেশাদার সেবাসমূহ</h2>
-                <div class="row">
-                    <div class="col-md-4 service-card">
-                        <h3>ওয়েব ডেভেলপমেন্ট</h3>
+
+        <div class="container mx-auto mt-24 px-4">
+            <section id="home" class="text-center py-20">
+                <h1 class="text-5xl font-bold mb-4">লিখন শেখ</h1>
+                <p class="text-xl mb-8">প্রফেশনাল ওয়েব ডেভেলপার এবং ডিজিটাল সমাধান বিশেষজ্ঞ</p>
+                <a href="#contact" class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded">যোগাযোগ করুন</a>
+            </section>
+
+            <section id="services" class="py-20">
+                <h2 class="text-3xl font-bold text-center mb-12">আমার পেশাদার সেবাসমূহ</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <i class="fas fa-code text-4xl text-indigo-500 mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2">ওয়েব ডেভেলপমেন্ট</h3>
                         <p>আধুনিক, রেসপন্সিভ ওয়েব অ্যাপ্লিকেশন তৈরি করি React এবং Next.js ব্যবহার করে।</p>
                     </div>
-                    <div class="col-md-4 service-card">
-                        <h3>UI/UX ডিজাইন</h3>
-                        <p>ব্যবহারকারী-কেন্দ্রিক ডিজাইন সমাধান যা ব্যবসায়িক প্রয়োজনীএছাড়াও আমার কিছু সামাজিক মিডিয়া লিঙ্ক নিচে দেওয়া হলো:
-                        <ul>
-                            <li><a href="https://t.me/sh33ikh">টেলিগ্রাম</a></li>
-                            <li><a href="https://linkedin.com/in/likhonsheikh">লিঙ্কডিন</a></li>
-                            <li><a href="https://github.com/sh33ikh">গিটহাব</a></li>
-                        </ul>
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <i class="fas fa-paint-brush text-4xl text-indigo-500 mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2">UI/UX ডিজাইন</h3>
+                        <p>ব্যবহারকারী-কেন্দ্রিক ডিজাইন সমাধান যা ব্যবসায়িক প্রয়োজনীয়তা পূরণ করে।</p>
                     </div>
-                    <div class="col-md-4 service-card">
-                        <h3>ডিজিটাল স্ট্রাটেজি</h3>
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <i class="fas fa-chart-line text-4xl text-indigo-500 mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2">ডিজিটাল স্ট্রাটেজি</h3>
                         <p>ব্যবসায়িক জন্য ডিজিটাল রূপান্তর এবং নবাচার কৌশল প্রদান।</p>
                     </div>
                 </div>
-            </div>
-        </section>
-        <section class="cta-section">
-            <div class="container">
-                <h2 class="text-center">আপনার পরবর্তী ডিজিটাল প্রকল্পের জন্য কাজ করুন</h2>
-                <p class="text-center">আসুন মিলে একটি অসাধারণ ডিজিটাল সমাধান তৈরি করি!</p>
-                <div class="text-center">
-                    <a href="#contact" class="btn btn-success">আমার সাথে যোগাযোগ করুন</a>
+            </section>
+
+            <section id="blog" class="py-20">
+                <h2 class="text-3xl font-bold text-center mb-12">সাম্প্রতিক ব্লগ পোস্ট</h2>
+                <div id="blog-posts" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Blog posts will be dynamically inserted here -->
                 </div>
-            </div>
-        </section>
-    </main>
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content d-flex flex-column align-items-center">
-                <div class="social-icons d-flex justify-content-center">
-                    <a href="https://t.me/sh33ikh" target="_blank" class="social-icon">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Telegram_logo.svg/1200px-Telegram_logo.svg.png" alt="Telegram" width="30" height="30">
-                    </a>
-                    <a href="https://linkedin.com/in/likhonsheikh" target="_blank" class="social-icon">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/1200px-LinkedIn_logo_initials.png" alt="LinkedIn" width="30" height="30">
-                    </a>
-                    <a href="https://github.com/sh33ikh" target="_blank" class="social-icon">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/1200px-Octicons-mark-github.svg.png" alt="GitHub" width="30" height="30">
-                    </a>
+                <div class="text-center mt-8">
+                    <a href="/create-blog.html" class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded">নতুন ব্লগ পোস্ট লিখুন</a>
                 </div>
-                <div class="copyright text-center">
-                    <p>2024 লিখন শেখ. সর্বস্বত্ব সংরক্ষিত।</p>
-                </div>
-            </div>
+            </section>
+
+            <section id="contact" class="py-20">
+                <h2 class="text-3xl font-bold text-center mb-12">যোগাযোগ করুন</h2>
+                <form id="contact-form" class="max-w-lg mx-auto">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="name">নাম</label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="আপনার নাম" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="email">ইমেইল</label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="আপনার ইমেইল" required>
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="message">বার্তা</label>
+                        <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="message" rows="5" placeholder="আপনার বার্তা" required></textarea>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <button class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                            পাঠান
+                        </button>
+                    </div>
+                </form>
+            </section>
         </div>
-    </footer>
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- Three.js for background animation -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="js/script.js"></script>
+
+        <footer class="bg-indigo-500 text-white py-8">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-wrap justify-between items-center">
+                    <div class="w-full md:w-1/3 text-center md:text-left">
+                        <h3 class="text-lg font-semibold mb-2">লিখন শেখ</h3>
+                        <p>প্রফেশনাল ওয়েব ডেভেলপার</p>
+                    </div>
+                    <div class="w-full md:w-1/3 text-center my-4 md:my-0">
+                        <div class="flex justify-center space-x-4">
+                            <a href="https://t.me/sh33ikh" target="_blank" rel="noopener noreferrer" class="text-white hover:text-indigo-200">
+                                <i class="fab fa-telegram fa-2x"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/likhonsheikh" target="_blank" rel="noopener noreferrer" class="text-white hover:text-indigo-200">
+                                <i class="fab fa-linkedin fa-2x"></i>
+                            </a>
+                            <a href="https://github.com/sh33ikh" target="_blank" rel="noopener noreferrer" class="text-white hover:text-indigo-200">
+                                <i class="fab fa-github fa-2x"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/3 text-center md:text-right">
+                        <p>&copy; 2024 লিখন শেখ। সর্বস্বত্ব সংরক্ষিত।</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="/js/main.js"></script>
 </body>
 </html>
