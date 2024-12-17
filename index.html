@@ -3,39 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    
+
     <!-- SEO Optimization -->
     <title>লিখন শেখ | ডিজিটাল ক্রিয়েটর</title>
     <meta name="description" content="লিখন শেখ - একজন আধুনিক ওয়েব ডেভেলপার, ডিজাইনার এবং টেক এন্থুসিয়াস্ট। আইটি সমাধান এবং ডিজিটাল ইনোভেশন।">
     <meta name="keywords" content="লিখন শেখ, ওয়েব ডেভেলপার, টেক প্রফেশনাল, ডিজিটাল ক্রিয়েটর, বাংলাদেশী ডেভেলপার">
     <meta name="author" content="লিখন শেখ">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="লিখন শেখ | ডিজিটাল ক্রিয়েটর">
     <meta property="og:description" content="আধুনিক টেক এবং ডিজিটাল সমাধানের জগতে স্বাগতম।">
     <meta property="og:url" content="https://sh33ikh.github.io">
     <meta property="og:image" content="https://sh33ikh.github.io/assets/profile.jpg">
-    
+
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="লিখন শেখ | ডিজিটাল ক্রিয়েটর">
     <meta name="twitter:description" content="আধুনিক টেক এবং ডিজিটাল সমাধানের জগতে স্বাগতম।">
     <meta name="twitter:image" content="https://sh33ikh.github.io/assets/profile.jpg">
-    
+
     <!-- Favicon and App Icons -->
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
-    
+
     <!-- Performance Optimization -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
+
     <!-- Typography -->
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;600;700&family=Kalpurush&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    
+
     <!-- Structured Data - JSON-LD -->
     <script type="application/ld+json">
     {
@@ -55,6 +55,7 @@
     }
     </script>
 
+    <!-- Minified Inline Styles for Performance -->
     <style>
         :root {
             --primary-color: #1cd99d;
@@ -79,23 +80,16 @@
             overflow-x: hidden;
         }
 
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            padding: 20px;
             position: sticky;
             top: 0;
             background-color: rgba(18, 18, 18, 0.9);
-            z-index: 100;
             backdrop-filter: blur(10px);
+            z-index: 100;
         }
 
         .logo {
@@ -125,10 +119,6 @@
             align-items: center;
             min-height: calc(100vh - 100px);
             gap: 50px;
-        }
-
-        .hero-content {
-            flex: 1;
         }
 
         .hero-title {
@@ -203,7 +193,7 @@
             }
 
             nav ul {
-                display: none; /* Add mobile menu toggle */
+                display: none;
             }
 
             .cta-buttons {
@@ -216,6 +206,7 @@
         }
     </style>
 </head>
+
 <body>
     <header>
         <div class="logo">লিখন শেখ</div>
@@ -264,11 +255,26 @@
             </div>
         </section>
 
-        <div class="social-links">
-            <a href="https://t.me/sh33ikh" target="_blank" class="social-link" title="টেলিগ্রাম">
-                <i class="fab fa-telegram"></i>
-            </a>
-        </div>
+        <section id="about" class="container">
+            <h2 class="section-title">সম্পর্কে</h2>
+            <p>লিখন শেখ - একজন প্রখ্যাত ওয়েব ডেভেলপার এবং ডিজিটাল প্রোডাক্ট ক্রিয়েটর, যিনি আইটি ও ডিজিটাল ইনোভেশন সেক্টরে বিশেষজ্ঞ।</p>
+        </section>
+
+        <section id="contact" class="container">
+            <h2 class="section-title">যোগাযোগ</h2>
+            <p>আমার সাথে যোগাযোগ করুন: <a href="https://t.me/sh33ikh">টেলিগ্রাম</a></p>
+        </section>
+
+        <footer>
+            <div class="social-links">
+                <a href="https://t.me/sh33ikh" target="_blank" class="social-link" title="টেলিগ্রাম">
+                    <i class="fab fa-telegram"></i>
+                </a>
+                <a href="https://github.com/sh33ikh" target="_blank" class="social-link" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </footer>
     </main>
 </body>
 </html>
