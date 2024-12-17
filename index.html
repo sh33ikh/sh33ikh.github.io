@@ -45,7 +45,8 @@
         "jobTitle": "ওয়েব ডেভেলপার",
         "url": "https://sh33ikh.github.io",
         "sameAs": [
-            "https://t.me/sh33ikh"
+            "https://t.me/sh33ikh",
+            "https://www.binance.com/en/square/profile/likhonsheikhbd"
         ],
         "skills": [
             "Web Development",
@@ -122,10 +123,10 @@
         }
 
         .hero {
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
             align-items: center;
-            min-height: 100vh;
-            gap: 50px;
             padding: 50px;
             background: linear-gradient(to right, #121212, #333333);
             transition: background 0.5s ease;
@@ -163,15 +164,15 @@
             transform: scale(1.05);
         }
 
-        .skills {
+        .profile-section {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 30px;
+            justify-items: center;
             margin-top: 50px;
-            animation: fadeIn 2s ease-in-out;
         }
 
-        .skill-card {
+        .profile-card {
             background-color: #1e1e1e;
             padding: 20px;
             border-radius: 10px;
@@ -179,11 +180,14 @@
             transition: transform var(--transition-speed);
         }
 
-        .skill-card:hover {
-            transform: translateY(-10px);
+        .profile-card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 15px;
         }
 
-        .skill-card h3 {
+        .profile-card h3 {
             font-size: 1.5rem;
             margin-bottom: 10px;
         }
@@ -237,6 +241,7 @@
         <nav>
             <ul>
                 <li><a href="#home">হোম</a></li>
+                <li><a href="#profile">প্রোফাইল</a></li>
                 <li><a href="#skills">দক্ষতা</a></li>
                 <li><a href="#contact">যোগাযোগ</a></li>
             </ul>
@@ -253,6 +258,15 @@
             </div>
         </div>
         <img src="https://sh33ikh.github.io/assets/profile.jpg" alt="লিখন শেখ" width="300" height="300">
+    </section>
+
+    <section class="profile-section" id="profile">
+        <div class="profile-card">
+            <img src="https://public.bnbstatic.com/image/pgc/202311/534707992a2382225ce8b11b3e7bcb72.png" alt="লিখন শেখ Binance">
+            <h3>লিখন শেখ</h3>
+            <p>ওয়েব ডেভেলপার, ডিজিটাল কৌশল বিশেষজ্ঞ</p>
+            <a href="https://www.binance.com/en/square/profile/likhonsheikhbd" target="_blank" class="btn">Binance প্রোফাইল</a>
+        </div>
     </section>
 
     <section class="skills" id="skills">
