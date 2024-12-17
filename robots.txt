@@ -3,6 +3,11 @@ Disallow: /private/
 Allow: /
 
 Sitemap: https://sh33ikh.github.io/sitemap.xml
+User-agent: *
+Allow: /
+
+Sitemap: https://www.sh33ikh.github.io/sitemap.xml
+
 
 # Crawl-delay parameter: 10 seconds between successive requests
 Crawl-delay: 10
