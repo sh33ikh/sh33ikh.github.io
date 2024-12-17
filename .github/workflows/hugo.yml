@@ -1,4 +1,4 @@
-# Sample workflow for building and deploying a Hugo site to GitHub Pages
+# Updated workflow for building and deploying a Hugo site to GitHub Pages
 name: Deploy Hugo site to Pages
 
 on:
@@ -12,7 +12,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: "pages-deployment"
   cancel-in-progress: false
 
 defaults:
@@ -21,26 +21,30 @@ defaults:
 
 jobs:
   build:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-24.04 # Updated to the latest Ubuntu version
     env:
       HUGO_VERSION: 0.128.0
     steps:
-      - name: Install Hugo CLI
-        run: |
-          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
-          && sudo dpkg -i ${{ runner.temp }}/hugo.deb
-      - name: Install Dart Sass
-        run: sudo snap install dart-sass
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
         with:
           submodules: recursive
+
+      - name: Install Hugo
+        run: |
+          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
+          && sudo dpkg -i ${{ runner.temp }}/hugo.deb
+
+      - name: Install dependencies
+        run: |
+          sudo snap install dart-sass # Dart Sass for SCSS compilation
+          [[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true
+
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
-      - name: Install Node.js dependencies
-        run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
-      - name: Build with Hugo
+
+      - name: Build Hugo site
         env:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
           HUGO_ENVIRONMENT: production
@@ -48,6 +52,7 @@ jobs:
           hugo \
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
