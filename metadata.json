@@ -1,0 +1,20 @@
+{
+  "name": "লিখন শেখ",
+  "description": "প্রফেশনাল ওয়েব ডেভেলপার এবং ডিজিটাল সমাধান বিশেষজ্ঞ",
+  "url": "https://www.sh33ikh.github.io",
+  "author": {
+    "name": "লিখন শেখ",
+    "email": "contact@likhonsheikh.com"
+  },
+  "social": {
+    "telegram": "https://t.me/sh33ikh",
+    "linkedin": "https://linkedin.com/in/likhonsheikh",
+    "github": "https://github.com/sh33ikh"
+  },
+  "skills": [
+    "ওয়েব ডেভেলপমেন্ট",
+    "UI/UX ডিজাইন",
+    "ডিজিটাল স্ট্রাটেজি"
+  ]
+}
+
