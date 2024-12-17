@@ -3,39 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
+    
     <!-- SEO Optimization -->
-    <title>লিখন শেখ | Likhon Sheikh</title>
+    <title>লিখন শেখ | ডিজিটাল ক্রিয়েটর</title>
     <meta name="description" content="লিখন শেখ - একজন আধুনিক ওয়েব ডেভেলপার, ডিজাইনার এবং টেক এন্থুসিয়াস্ট। আইটি সমাধান এবং ডিজিটাল ইনোভেশন।">
     <meta name="keywords" content="লিখন শেখ, ওয়েব ডেভেলপার, টেক প্রফেশনাল, ডিজিটাল ক্রিয়েটর, বাংলাদেশী ডেভেলপার">
     <meta name="author" content="লিখন শেখ">
-
+    
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="লিখন শেখ | ডিজিটাল ক্রিয়েটর">
     <meta property="og:description" content="আধুনিক টেক এবং ডিজিটাল সমাধানের জগতে স্বাগতম।">
     <meta property="og:url" content="https://sh33ikh.github.io">
     <meta property="og:image" content="https://sh33ikh.github.io/assets/profile.jpg">
-
+    
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="লিখন শেখ | ডিজিটাল ক্রিয়েটর">
     <meta name="twitter:description" content="আধুনিক টেক এবং ডিজিটাল সমাধানের জগতে স্বাগতম।">
     <meta name="twitter:image" content="https://sh33ikh.github.io/assets/profile.jpg">
-
+    
     <!-- Favicon and App Icons -->
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
-
+    
     <!-- Performance Optimization -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
+    
     <!-- Typography -->
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;600;700&family=Kalpurush&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-
+    
     <!-- Structured Data - JSON-LD -->
     <script type="application/ld+json">
     {
@@ -63,6 +63,7 @@
             --background-color: #121212;
             --text-color: #e0e0e0;
             --accent-color: #bb86fc;
+            --transition-speed: 0.3s;
         }
 
         * {
@@ -78,6 +79,7 @@
             color: var(--text-color);
             line-height: 1.6;
             overflow-x: hidden;
+            transition: background-color var(--transition-speed);
         }
 
         header {
@@ -93,9 +95,14 @@
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 700;
             color: var(--primary-color);
+            transition: transform var(--transition-speed);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
         }
 
         nav ul {
@@ -107,7 +114,7 @@
         nav a {
             text-decoration: none;
             color: var(--text-color);
-            transition: color 0.3s ease;
+            transition: color var(--transition-speed);
         }
 
         nav a:hover {
@@ -117,18 +124,25 @@
         .hero {
             display: flex;
             align-items: center;
-            min-height: calc(100vh - 100px);
+            min-height: 100vh;
             gap: 50px;
+            padding: 50px;
+            background: linear-gradient(to right, #121212, #333333);
+            transition: background 0.5s ease;
         }
 
         .hero-title {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 20px;
             font-family: 'Kalpurush', sans-serif;
+            animation: fadeIn 1s ease-in-out;
         }
 
         .hero-description {
             margin-bottom: 30px;
+            font-size: 1.2rem;
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
         }
 
         .cta-buttons {
@@ -137,13 +151,12 @@
         }
 
         .btn {
-            display: inline-block;
             padding: 12px 24px;
             background-color: var(--primary-color);
             color: var(--background-color);
             text-decoration: none;
             border-radius: 5px;
-            transition: transform 0.3s ease;
+            transition: transform var(--transition-speed);
         }
 
         .btn:hover {
@@ -152,9 +165,10 @@
 
         .skills {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
             margin-top: 50px;
+            animation: fadeIn 2s ease-in-out;
         }
 
         .skill-card {
@@ -162,11 +176,16 @@
             padding: 20px;
             border-radius: 10px;
             text-align: center;
-            transition: transform 0.3s ease;
+            transition: transform var(--transition-speed);
         }
 
         .skill-card:hover {
             transform: translateY(-10px);
+        }
+
+        .skill-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
         }
 
         .social-links {
@@ -179,21 +198,27 @@
             color: var(--primary-color);
             font-size: 2rem;
             margin: 0 15px;
-            transition: color 0.3s ease;
+            transition: color var(--transition-speed);
         }
 
         .social-link:hover {
             color: var(--accent-color);
         }
 
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
         @media screen and (max-width: 768px) {
             .hero {
                 flex-direction: column;
                 text-align: center;
-            }
-
-            nav ul {
-                display: none;
+                padding: 30px;
             }
 
             .cta-buttons {
@@ -201,12 +226,11 @@
             }
 
             .hero-title {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
         }
     </style>
 </head>
-
 <body>
     <header>
         <div class="logo">লিখন শেখ</div>
@@ -214,67 +238,43 @@
             <ul>
                 <li><a href="#home">হোম</a></li>
                 <li><a href="#skills">দক্ষতা</a></li>
-                <li><a href="#about">সম্পর্কে</a></li>
                 <li><a href="#contact">যোগাযোগ</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <section id="home" class="container hero">
-            <div class="hero-content">
-                <h1 class="hero-title">ডিজিটাল জগতে স্বাগতম</h1>
-                <p class="hero-description">
-                    আমি লিখন শেখ, একজন আধুনিক ওয়েব ডেভেলপার এবং ডিজিটাল নবোন্মেষী। আমি ব্যক্তিগত এবং ব্যবসায়িক সমাধানের জন্য উৎসর্গীকৃত।
-                </p>
-                <div class="cta-buttons">
-                    <a href="#contact" class="btn">যোগাযোগ করুন</a>
-                    <a href="#projects" class="btn">আমার প্রকল্প</a>
-                </div>
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="hero-title">ডিজিটাল জগতে স্বাগতম</h1>
+            <p class="hero-description">আমি লিখন শেখ, একজন আধুনিক ওয়েব ডেভেলপার এবং ডিজিটাল নবোন্মেষী। আমি ব্যক্তিগত এবং ব্যবসায়িক সমাধানের জন্য উৎসর্গীকৃত।</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn">যোগাযোগ করুন</a>
+                <a href="#skills" class="btn">আমার দক্ষতা</a>
             </div>
-        </section>
+        </div>
+        <img src="https://sh33ikh.github.io/assets/profile.jpg" alt="লিখন শেখ" width="300" height="300">
+    </section>
 
-        <section id="skills" class="container">
-            <h2 class="section-title">আমার দক্ষতা</h2>
-            <div class="skills">
-                <div class="skill-card">
-                    <i class="fas fa-code"></i>
-                    <h3>ওয়েব ডেভেলপমেন্ট</h3>
-                    <p>আধুনিক ওয়েব সমাধান তৈরি</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-paint-brush"></i>
-                    <h3>ডিজাইন</h3>
-                    <p>UX/UI ডিজাইন ও প্রোটোটাইপিং</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-server"></i>
-                    <h3>ব্যাকএন্ড সমাধান</h3>
-                    <p>দক্ষ সার্ভার-সাইড প্রোগ্রামিং</p>
-                </div>
-            </div>
-        </section>
+    <section class="skills" id="skills">
+        <div class="skill-card">
+            <h3>ওয়েব ডেভেলপমেন্ট</h3>
+            <p>আধুনিক ওয়েব সমাধান তৈরি</p>
+        </div>
+        <div class="skill-card">
+            <h3>UI/UX ডিজাইন</h3>
+            <p>ইউজার অভিজ্ঞতা ডিজাইন</p>
+        </div>
+        <div class="skill-card">
+            <h3>ডিজিটাল কৌশল</h3>
+            <p>ডিজিটাল সমাধান ও পরামর্শ</p>
+        </div>
+    </section>
 
-        <section id="about" class="container">
-            <h2 class="section-title">সম্পর্কে</h2>
-            <p>লিখন শেখ - একজন প্রখ্যাত ওয়েব ডেভেলপার এবং ডিজিটাল প্রোডাক্ট ক্রিয়েটর, যিনি আইটি ও ডিজিটাল ইনোভেশন সেক্টরে বিশেষজ্ঞ।</p>
-        </section>
-
-        <section id="contact" class="container">
-            <h2 class="section-title">যোগাযোগ</h2>
-            <p>আমার সাথে যোগাযোগ করুন: <a href="https://t.me/sh33ikh">টেলিগ্রাম</a></p>
-        </section>
-
-        <footer>
-            <div class="social-links">
-                <a href="https://t.me/sh33ikh" target="_blank" class="social-link" title="টেলিগ্রাম">
-                    <i class="fab fa-telegram"></i>
-                </a>
-                <a href="https://github.com/sh33ikh" target="_blank" class="social-link" title="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-            </div>
-        </footer>
-    </main>
+    <footer>
+        <div class="social-links">
+            <a href="https://t.me/sh33ikh" class="social-link"><i class="fab fa-telegram"></i></a>
+            <a href="https://github.com/sh33ikh" class="social-link"><i class="fab fa-github"></i></a>
+        </div>
+    </footer>
 </body>
 </html>
