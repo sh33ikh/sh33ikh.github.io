@@ -1,0 +1,18 @@
+User-agent: *
+Disallow: /private/
+Allow: /
+
+Sitemap: https://sh33ikh.github.io/sitemap.xml
+
+# Crawl-delay parameter: 10 seconds between successive requests
+Crawl-delay: 10
+
+# Specific bot configurations
+User-agent: Googlebot
+Allow: /
+
+User-agent: Baiduspider
+Disallow: /
+
+User-agent: Yandex
+Allow: /
