@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,15 +8,142 @@
     <meta name="description" content="Support Rekt Developers by donating ETH securely using MetaMask.">
     <meta name="keywords" content="donation, Rekt Developers, MetaMask, Ethereum, support">
     <meta name="author" content="Rekt Developers">
+
+    <!-- External Stylesheets -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="https://c0f4f41c-2f55-4863-921b-sdk-docs.github.io/cdn/metamask-sdk.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif, Arial, sans-serif;
+            background: #121212;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(135deg, #6a1b9a, #9c27b0);
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+
+        button {
+            background: #ff4081;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            background: #e91e63;
+        }
+
+        .donation-section {
+            text-align: center;
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            background: #1e1e1e;
+        }
+
+        .donation-section h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .donation-section input {
+            padding: 15px;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            width: 100%;
+            border-radius: 5px;
+            border: none;
+            background: #333;
+            color: white;
+        }
+
+        footer {
+            background: #111;
+            color: #888;
+            text-align: center;
+            padding: 30px;
+            font-size: 1rem;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #ff4081;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #e91e63;
+        }
+
+        .wallet-info {
+            color: #ff4081;
+        }
+
+        .loading {
+            display: none;
+        }
+
+        .success, .error {
+            display: none;
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .success {
+            background: #4caf50;
+            color: white;
+        }
+
+        .error {
+            background: #f44336;
+            color: white;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 30px 0;
+            }
+
+            .donation-section {
+                padding: 30px;
+            }
+        }
+    </style>
 </head>
+
 <body>
+
     <header>
         <h1>Donate to Rekt Developers</h1>
         <p>Help us continue developing great projects!</p>
         <button id="connectWalletBtn" onclick="connectWallet()">Connect MetaMask</button>
-        <p>Wallet Address: <span id="wallet-address">Not connected</span></p>
+        <p>Wallet Address: <span id="wallet-address" class="wallet-info">Not connected</span></p>
     </header>
 
     <main>
@@ -24,6 +152,11 @@
             <label for="amount">Amount (ETH):</label>
             <input type="number" id="amount" min="0" step="0.01" placeholder="Enter amount">
             <button id="sendDonationBtn" onclick="sendDonation()">Send Donation</button>
+            <div id="loading" class="loading">
+                <i class="fas fa-spinner fa-pulse"></i> Loading...
+            </div>
+            <div id="success" class="success"></div>
+            <div id="error" class="error"></div>
         </section>
     </main>
 
@@ -45,7 +178,11 @@
             try {
                 const accounts = await MMSDK.connect();
                 document.getElementById('wallet-address').innerText = accounts[0];
+                document.getElementById('connectWalletBtn').innerText = 'Connected';
+                document.getElementById('connectWalletBtn').disabled = true;
+                document.getElementById('sendDonationBtn').disabled = false;
             } catch (err) {
+ {
                 console.error(err);
                 alert('Failed to connect wallet');
             }
@@ -55,23 +192,42 @@
             const recipient = '0x3A06322e9F1124F6B2de8F343D4FDce4D1009869';
             const amount = document.getElementById('amount').value;
 
+            if (amount <= 0) {
+                document.getElementById('error').innerText = 'Please enter a valid amount greater than 0.';
+                document.getElementById('error').style.display = 'block';
+                return;
+            }
+
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('sendDonationBtn').disabled = true;
+
             try {
                 const transactionParameters = {
                     to: recipient,
                     from: window.ethereum.selectedAddress,
                     value: '0x' + (amount * 1e18).toString(16), // Convert to Wei
                 };
+
                 await window.ethereum.request({
                     method: 'eth_sendTransaction',
                     params: [transactionParameters],
                 });
-                alert('Donation sent!');
+
+                document.getElementById('success').innerText = 'Donation sent successfully!';
+                document.getElementById('success').style.display = 'block';
             } catch (err) {
                 console.error(err);
-                alert('Failed to send donation');
+                document.getElementById('error').innerText = 'Failed to send donation';
+                document.getElementById('error').style.display = 'block';
+            } finally {
+ {
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('sendDonationBtn').disabled = false;
             }
         }
     </script>
-    <script src="animations.js"></script>
+
+    <script src="styles.css"></script>
 </body>
+
 </html>
