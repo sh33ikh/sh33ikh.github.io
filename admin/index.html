@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Setup</title>
+    <meta name="description" content="Admin panel to set up your blog system and manage content.">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body class="bg-light">
+    <div class="container py-5">
+        <div id="setup-form" class="d-none">
+            <h1 class="text-center">Admin Setup</h1>
+            <form id="adminSetupForm">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username" placeholder="Enter admin username" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Enter admin password" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Setup Admin</button>
+            </form>
+        </div>
+
+        <div id="admin-panel" class="d-none">
+            <h1 class="text-center">Admin Panel</h1>
+            <button class="btn btn-success mb-3" onclick="createNewBlog()">Create New Blog</button>
+            <div id="blogs-container">
+                <!-- Blogs will be dynamically loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const apiBase = '/api'; // Adjust this based on your backend
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const response = await axios.get(`${apiBase}/check-admin`);
+            if (response.data.isSetup) {
+                document.getElementById('admin-panel').classList.remove('d-none');
+                loadBlogs();
+            } else {
+                document.getElementById('setup-form').classList.remove('d-none');
+            }
+        });
+
+        document.getElementById('adminSetupForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            const response = await axios.post(`${apiBase}/setup-admin`, { username, password });
+            if (response.data.success) {
+                Swal.fire('Success!', 'Admin credentials set successfully.', 'success').then(() => {
+                    location.reload();
+                });
+            } else {
+                Swal.fire('Error', 'Failed to set up admin credentials.', 'error');
+            }
+        });
+
+        async function loadBlogs() {
+            const response = await axios.get(`${apiBase}/blogs`);
+            const blogs = response.data.blogs;
+
+            const container = document.getElementById('blogs-container');
+            container.innerHTML = blogs.map(blog => `
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">${blog.title}</h5>
+                        <p class="card-text">${blog.content}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function createNewBlog() {
+            Swal.fire({
+                title: 'New Blog',
+                html: `
+                    <input id="blogTitle" class="swal2-input" placeholder="Blog Title">
+                    <textarea id="blogContent" class="swal2-textarea" placeholder="Blog Content"></textarea>
+                `,
+                confirmButtonText: 'Create',
+                showCancelButton: true,
+                preConfirm: async () => {
+                    const title = document.getElementById('blogTitle').value;
+                    const content = document.getElementById('blogContent').value;
+
+                    if (!title || !content) {
+                        Swal.showValidationMessage('Both fields are required');
+                        return;
+                    }
+
+                    const response = await axios.post(`${apiBase}/create-blog`, { title, content });
+                    if (!response.data.success) {
+                        Swal.showValidationMessage('Failed to create blog');
+                        return;
+                    }
+
+                    loadBlogs();
+                }
+            });
+        }
+    </script>
+</body>
+</html>
